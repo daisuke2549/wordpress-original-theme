@@ -5,13 +5,17 @@
 			<div class="footer-sub">サブタイトルが入りますサブタイトルが入ります</div><!-- /footer-sub -->
 
 			<nav class="footer-nav">
-				<ul class="footer-list">
-					<li class="menu-item"><a href="#">メニュー1</a></li>
-					<li class="menu-item"><a href="#">メニュー2</a></li>
-					<li class="menu-item"><a href="#">メニュー3</a></li>
-					<li class="menu-item"><a href="#">メニュー4</a></li>
-					<li class="menu-item"><a href="#">メニュー5</a></li>
-				</ul>
+			<?php 
+				//.drawer-navを置き換えて、スマホ用メニューを動的に表示する
+                wp_nav_menu(
+				array(
+					'depth' => 1,
+					'theme_location' => 'footer-menu', //グローバルメニューをここに表示すると指定
+					'container' => 'false',
+					'menu_class' => 'header-list',
+					)
+				);
+				?>
 			</nav>
 
 		</div><!-- /inner -->

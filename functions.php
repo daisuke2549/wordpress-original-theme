@@ -34,5 +34,18 @@ wp_enqueue_script('my', get_template_directory_uri() . '/js/script.js', array( '
 add_action('wp_enqueue_scripts', 'my_script_init');
 
 
-
 add_action('after_setup_theme', 'my_setup');
+
+
+function my_menu_init()
+{
+register_nav_menus(
+
+array(
+'global' => 'ヘッダーメニュー',
+'footer-menu' => 'フッターメニュー',
+'drawer' => 'ドロワーメニュー',
+)
+);
+}
+add_action('init', 'my_menu_init');
