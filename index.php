@@ -3,6 +3,7 @@
     <!-- pickup -->
 	<div id="pickup">
 		<div class="inner">
+			
 
 			<div class="pickup-items">
 
@@ -67,12 +68,15 @@
 				<!-- entry-item-body -->
 				<div class="entry-item-body">
 				<div class="entry-item-meta">
-				<div class="entry-item-tag">カテゴリ名</div><!-- /entry-item-tag -->
-				<time class="entry-item-published" datetime="2019-01-01">2019/1/1</time><!-- /entry-item-published -->
+				<div class="entry-item-tag"><?php
+                $category = get_the_category(); 
+                echo $category[0]->cat_name;
+                ?></div><!-- /entry-item-tag -->
+				<time class="entry-item-published" datetime="2019-01-01"><?php the_time('Y/n/j'); ?></time><!-- /entry-item-published -->
 				</div><!-- /entry-item-meta -->
-				<h2 class="entry-item-title">記事のタイトルが入ります記事のタイトルが入ります記事のタイトルが入ります</h2><!-- /entry-item-title -->
+				<h2 class="entry-item-title"><?php the_title(); ?></h2><!-- /entry-item-title -->
 				<div class="entry-item-excerpt">
-				<p>文章の一部が入ります文章の一部が入ります文章の一部が入ります文章の一部が入ります文章の一部が入…</p>
+				<p><?php the_excerpt(); //抜粋を表示 ?></p>
 				</div><!-- /entry-item-excerpt -->
 				</div><!-- /entry-item-body -->
 				</a><!-- /entry-item -->
