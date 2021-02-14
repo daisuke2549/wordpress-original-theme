@@ -26,8 +26,13 @@
 	<header id="header">
 		<div class="inner">
 
-			<h1 class="header-logo"><a href="/">TF-30</a></h1><!-- /header-logo -->
-			<div class="header-sub">サブタイトルが入りますサブタイトルが入ります</div><!-- /header-sub -->
+            <?php if (is_home() || is_front_page() ) : //トップページではロゴをh1に、それ以外のページではdivに。 ?>
+				<h1 class="header-logo"><a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></h1><!-- /header-logo -->
+			<?php else : ?>
+			<div class="header-logo"><a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></div><!-- /header-logo -->
+			<?php endif; ?>
+			<div class="header-sub"><?php bloginfo('description'); //ブログのdescriptionを表示 ?></div><!-- /header-sub -->
+
 
 			<!-- drawer -->
 			<div class="drawer">
@@ -38,15 +43,18 @@
 
 				<!-- drawer-content -->
 				<div class="drawer-content">
-					<nav class="drawer-nav">
-						<ul class="drawer-list">
-							<li class="m_icon1 menu-item"><a href="#">メニュー1</a></li>
-							<li class="m_icon2 menu-item"><a href="#">メニュー2</a></li>
-							<li class="m_icon3 menu-item"><a href="#">メニュー3</a></li>
-							<li class="m_icon4 menu-item"><a href="#">メニュー4</a></li>
-							<li class="m_icon5 menu-item"><a href="#">メニュー5</a></li>
-						</ul>
-					</nav>
+				<?php 
+				//.drawer-navを置き換えて、スマホ用メニューを動的に表示する
+                wp_nav_menu(
+				array(	
+					'depth' => 1,
+					'theme_location' => 'drawer', //ドロワーメニューをここに表示すると指定
+					'container' => 'nav',
+					'container_class' => 'drawer-nav',
+					'menu_class' => 'drawer-list',
+					)
+				);
+				?>
 				</div><!-- /drawer-content -->
 			</div><!-- /drawer -->
 
@@ -56,12 +64,16 @@
 	<!-- header-nav -->
 	<nav class="header-nav">
 		<div class="inner">
-			<ul class="header-list">
-				<li class="m_icon1 menu-item"><a href="#">メニュー1</a></li>
-				<li class="m_icon2 menu-item"><a href="#">メニュー2</a></li>
-				<li class="m_icon3 menu-item"><a href="#">メニュー3</a></li>
-				<li class="m_icon4 menu-item"><a href="#">メニュー4</a></li>
-				<li class="m_icon5 menu-item"><a href="#">メニュー5</a></li>
-			</ul>
+		<?php
+		wp_nav_menu(
+		//.header-listを置き換えて、PC用メニューを動的に表示する
+		array(
+		'depth' => 1,
+		'theme_location' => 'global', //グローバルメニューをここに表示すると指定
+		'container' => 'false',
+		'menu_class' => 'header-list',
+		)
+		);
+        ?>
 		</div><!-- /inner -->
 	</nav><!-- header-nav -->
