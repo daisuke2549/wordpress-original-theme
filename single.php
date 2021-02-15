@@ -1,0 +1,189 @@
+<?php get_header(); ?>    
+
+	<!-- content -->
+	<div id="content">
+		<div class="inner">
+
+			<!-- primary -->
+			<main id="primary">
+            <?php if ( function_exists( 'bcn_display' ) ) : ?>
+				<!-- breadcrumb -->
+				<div class="breadcrumb">
+					<span property="itemListElement" typeof="ListItem">
+						<a property="item" typeof="WebPage" href="/" class="home"><span property="name">ホーム</span></a>
+						<meta property="position" content="1">
+					</span>
+					<i class="fas fa-angle-right"></i>
+					<span property="itemListElement" typeof="ListItem">
+						<a property="item" typeof="WebPage" href="#" class="taxonomy category"><span
+								property="name">カテゴリ名</span></a>
+						<meta property="position" content="2">
+					</span>
+					<i class="fas fa-angle-right"></i>
+                    <span class="post post-post current-item">記事のタイトルが入ります</span>
+                <?php bcn_display(); ?>
+				</div><!-- /breadcrumb -->
+                <?php endif; ?>
+                <?php
+                if ( have_posts() ) :
+                while ( have_posts() ) :
+                the_post();
+                ?>
+
+
+				<!-- entry -->
+				<article  <?php post_class( array( 'entry' ) ); ?>>
+
+					<!-- entry-header -->
+					<div class="entry-header">
+						<div class="entry-label"><?php the_category(' '); ?></a></div><!-- /entry-item-tag -->
+						<h1 class="entry-title"><?php the_archive_title(); //一覧ページ名を表示 ?></h1><!-- /entry-title -->
+
+						<!-- entry-meta -->
+						<div class="entry-meta">
+							<time class="entry-published" datetime="2019-01-01"><?php the_time('Y/m/d');?></time>
+							<time class="entry-updated" datetime="2019-04-01"><?php the_modified_time(); //一覧ページ名を表示 ?></time>
+						</div><!-- /entry-meta -->
+
+						<!-- entry-img -->
+                        <!-- entry-img -->
+                        <div class="entry-img">
+                        <?php
+                        if ( has_post_thumbnail() ) {
+                        the_post_thumbnail( 'large' );
+                        }
+                        ?>
+                        </div><!-- /entry-img -->
+
+					</div><!-- /entry-header -->
+
+					<!-- entry-body -->
+					<div class="entry-body">
+					   <?php the_content(); ?>
+					   <?php wp_link_pages(
+                        array(
+                            'before' => '<nav class="entry-links">',
+                            'after' => '</nav>',
+                            'link_before' => '',
+                            'link_after' => '',
+                            'next_or_number' => 'number',
+                            'separator' => '',
+                            )
+                            );
+                        ?>
+					</div><!-- /entry-body -->
+
+
+					<div class="entry-tag-items">
+                    <?php $post_tags = get_the_tags(); ?>
+                    <div class="entry-tag-items">
+                    <div class="entry-tag-head">タグ</div>
+                        <?php if ( $post_tags ) : ?>
+                        <?php foreach ( $post_tags as $tag ) : ?>
+                        <div class="entry-tag-item"><a href="<?php echo esc_url( get_tag_link($tag->term_id) ); ?>"><?php echo esc_html( $tag->name ); ?></a></div><!-- /entry-tag-item -->
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+					</div><!-- /entry-tag-items -->
+
+
+					<div class="entry-related">
+						<div class="related-title">関連記事</div>
+
+						<div class="related-items">
+
+							<a class="related-item" href="">
+								<div class="related-item-img"><img src="img/entry1.png" alt=""></div><!-- /related-item-img -->
+								<div class="related-item-title">記事のタイトルが入ります記事のタイトルが入ります記事のタイトルが入ります</div><!-- /related-item-title -->
+							</a><!-- /related-item -->
+
+							<a class="related-item" href="">
+								<div class="related-item-img"><img src="img/entry1.png" alt=""></div><!-- /related-item-img -->
+								<div class="related-item-title">記事のタイトルが入ります記事のタイトルが入ります記事のタイトルが入ります</div><!-- /related-item-title -->
+							</a><!-- /related-item -->
+
+							<a class="related-item" href="">
+								<div class="related-item-img"><img src="img/entry1.png" alt=""></div><!-- /related-item-img -->
+								<div class="related-item-title">記事のタイトルが入ります記事のタイトルが入ります記事のタイトルが入ります</div><!-- /related-item-title -->
+							</a><!-- /related-item -->
+
+							<a class="related-item" href="">
+								<div class="related-item-img"><img src="img/entry1.png" alt=""></div><!-- /related-item-img -->
+								<div class="related-item-title">記事のタイトルが入ります記事のタイトルが入ります記事のタイトルが入ります</div><!-- /related-item-title -->
+							</a><!-- /related-item -->
+
+							<a class="related-item" href="">
+								<div class="related-item-img"><img src="img/entry1.png" alt=""></div><!-- /related-item-img -->
+								<div class="related-item-title">記事のタイトルが入ります記事のタイトルが入ります記事のタイトルが入ります</div><!-- /related-item-title -->
+							</a><!-- /related-item -->
+
+							<a class="related-item" href="">
+								<div class="related-item-img"><img src="img/entry1.png" alt=""></div><!-- /related-item-img -->
+								<div class="related-item-title">記事のタイトルが入ります記事のタイトルが入ります記事のタイトルが入ります</div><!-- /related-item-title -->
+							</a><!-- /related-item -->
+
+							<a class="related-item" href="">
+								<div class="related-item-img"><img src="img/entry1.png" alt=""></div><!-- /related-item-img -->
+								<div class="related-item-title">記事のタイトルが入ります記事のタイトルが入ります記事のタイトルが入ります</div><!-- /related-item-title -->
+							</a><!-- /related-item -->
+
+							<a class="related-item" href="">
+								<div class="related-item-img"><img src="img/entry1.png" alt=""></div><!-- /related-item-img -->
+								<div class="related-item-title">記事のタイトルが入ります記事のタイトルが入ります記事のタイトルが入ります</div><!-- /related-item-title -->
+							</a><!-- /related-item -->
+
+						</div><!-- /related-items -->
+					</div><!-- /entry-related -->
+
+                </article> <!-- /entry -->
+                <?php
+                endwhile;
+                endif;
+                ?>
+			</main><!-- /primary -->
+
+            <?php get_sidebar(); ?>
+
+
+		</div><!-- /inner -->
+	</div><!-- /content -->
+
+    <?php get_footer(); ?>
+
+    <?php if(is_single()): ?>
+	<!-- footer-sns -->
+	<div class="footer-sns">
+		<div class="inner">
+			<div class="footer-sns-head">この記事をシェアする</div><!-- /footer-sns-head -->
+
+			<nav class="footer-sns-buttons">
+				<ul>
+					<li><a class="m_twitter"
+							href="https://twitter.com/share?url=https://example.com/archive/123/&text=記事のタイトルが入ります" rel="nofollow"
+							target="_blank"><img src="img/icon-twitter.png" alt=""></a></li>
+					<li><a class="m_facebook" href="https://www.facebook.com/share.php?u=https://example.com/archive/123/"
+							rel="nofollow" target="_blank"><img src="img/icon-facebook.png" alt=""></a></li>
+					<li><a class="m_hatena"
+							href="https://b.hatena.ne.jp/add?mode=confirm&url=https://example.com/archive/123/&title=記事のタイトルが入ります"
+							rel="nofollow" target="_blank"><img src="img/icon-hatena.png" alt=""></a></li>
+					<li><a class="m_line" href="https://social-plugins.line.me/lineit/share?url=https://example.com/archive/123/"
+							rel="nofollow" target="_blank"><img src="img/icon-line.png" alt=""></a></li>
+					<li><a class="m_pocket" href="https://getpocket.com/edit?url=https://example.com/archive/123/" rel="nofollow"
+							target="_blank"><img src="img/icon-pocket.png" alt=""></a></li>
+				</ul>
+			</nav><!-- /footer-sns-buttons -->
+
+		</div><!-- /inner -->
+	</div><!-- /footer-sns -->
+    <?php endif; ?>
+
+	<div class="floating">
+		<a href="#"><i class="fas fa-chevron-up"></i></a>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/sns.js"></script>
+
+</body>
+
+</html>
