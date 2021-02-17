@@ -68,10 +68,11 @@
 				<!-- entry-item-body -->
 				<div class="entry-item-body">
 				<div class="entry-item-meta">
+
 				<div class="entry-item-tag"><?php
-                $category = get_the_category(); 
-                echo $category[0]->cat_name;
-                ?></div><!-- /entry-item-tag -->
+                my_the_post_category(false); ?>
+				</div><!-- /entry-item-tag -->
+				
 				<time class="entry-item-published" datetime="2019-01-01"><?php the_time('Y/n/j'); ?></time><!-- /entry-item-published -->
 				</div><!-- /entry-item-meta -->
 				<h2 class="entry-item-title"><?php the_title(); ?></h2><!-- /entry-item-title -->
@@ -87,26 +88,10 @@
 
 				</div><!-- /entries -->
 				<?php endif; ?>
+			   
+				<!-- /pagenation -->
 
-				<?php if (paginate_links() ) :  ?>
-
-				<!-- pagenation -->
-				<div class="pagenation">
-				<?php 
-				echo
-				paginate_links(
-				array(
-				'end_size' => 1,
-				'mid_size' => 1,
-				'prev_next' => true,
-				'prev_text' => '<i class="fas fa-angle-left"></i>',
-				'next_text' => '<i class="fas fa-angle-right"></i>',
-				)
-				);
-                ?>
-				</div><!-- /pagenation -->
-				<?php endif; ?>
-
+				<?php get_template_part('template-parts/pagination'); ?>
 			</main><!-- /primary -->
 
             <?php get_sidebar( $sidebar ); ?>
