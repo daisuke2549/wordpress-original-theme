@@ -102,3 +102,18 @@ function my_archive_title( $title ) {
     add_filter( 'get_the_archive_title', 'my_archive_title' );
 
 
+function my_the_post_category( $anchor = true, $id = 0 ){
+global $post;
+
+if ( 0 === $id ) {
+  $id = $post->ID;
+}
+$this_categories = get_the_category( $id );
+if ( $this_categories[0] ) {
+if ( $anchor ) { //引数がtrueならリンク付きで出力
+echo '<a href="' . esc_url( get_category_link( $this_categories[0]->term_id ) ) . '">' . esc_html( $this_categories[0]->cat_name ) . '</a>';
+} else { //引数がfalseならカテゴリー名のみ出力
+echo esc_html( $this_categories[0]->cat_name );
+}
+}
+}
