@@ -6,30 +6,6 @@
 
 			<!-- primary -->
 			<main id="primary">
-            <?php if ( function_exists( 'bcn_display' ) ) : ?>
-				<!-- breadcrumb -->
-				<div class="breadcrumb">
-					<span property="itemListElement" typeof="ListItem">
-						<a property="item" typeof="WebPage" href="/" class="home"><span property="name">ホーム</span></a>
-						<meta property="position" content="1">
-					</span>
-					<i class="fas fa-angle-right"></i>
-					<span property="itemListElement" typeof="ListItem">
-						<a property="item" typeof="WebPage" href="#" class="taxonomy category"><span
-								property="name">カテゴリ名</span></a>
-						<meta property="position" content="2">
-					</span>
-					<i class="fas fa-angle-right"></i>
-                    <span class="post post-post current-item">記事のタイトルが入ります</span>
-                <?php bcn_display(); ?>
-				</div><!-- /breadcrumb -->
-                <?php endif; ?>
-                <?php
-                if ( have_posts() ) :
-                while ( have_posts() ) :
-                the_post();
-                ?>
-
 
 				<!-- entry -->
 				<article  <?php post_class( array( 'entry' ) ); ?>>
@@ -127,10 +103,6 @@
 					</div><!-- /entry-related -->
 
                 </article> <!-- /entry -->
-                <?php
-                endwhile;
-                endif;
-                ?>
 			</main><!-- /primary -->
 
             <?php get_sidebar(); ?>
