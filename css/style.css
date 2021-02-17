@@ -1398,6 +1398,11 @@ select:focus {
 	margin-bottom: 10px;
 	text-align: center;
 }
+.related-item-img img{
+	height:100px;
+}
+
+
 
 .related-item-title {
 	font-family: "HiraKakuPro-W6", "ヒラギノ角ゴ Pro W6", "Meiryo", "Meiryo", "Noto Sans Japanese", sans-serif;
