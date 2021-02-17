@@ -75,7 +75,7 @@
 
 						$myposts = get_posts( array(
 						'post_type' => 'post', // 投稿タイプ
-						'posts_per_page' => '8', // ８件を取得
+						'posts_per_page' => '4', // ８件を取得
 						'post__not_in' => array( $post->ID ),// 表示中の投稿を除外
 						'category__in' => $cat_ids, // この投稿と同じカテゴリーに属する投稿の中から
 						'orderby' => 'rand' // ランダムに
