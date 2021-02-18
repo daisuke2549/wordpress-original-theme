@@ -99,4 +99,7 @@
 		</div><!-- /inner -->
 	</div><!-- /content -->
 
+
+	<?php get_template_part('template-parts/share'); ?>
+
 <?php get_footer(); ?>

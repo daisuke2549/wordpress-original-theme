@@ -31,12 +31,9 @@
 			</div><!-- /by -->
 
 		</div><!-- /inner -->
-	</footer><!-- /footer -->
-    
+	</footer>
 
-	<!-- ここからが追記部分 -->
 	<?php if(is_single()): ?>
-	<!-- footer-sns -->
 	<div class="footer-sns">
 	<div class="inner">
 

@@ -239,10 +239,6 @@
 		</div><!-- /inner -->
 	</div><!-- /content -->
 
-
-    <?php get_footer(); ?>
-
-
 	<!-- footer-sns -->
 	<div class="footer-sns">
 		<div class="inner">
@@ -266,6 +262,11 @@
 
 		</div><!-- /inner -->
 	</div><!-- /footer-sns -->
+
+
+    <?php get_footer(); ?>
+
+
 
 
 	<div class="floating">
