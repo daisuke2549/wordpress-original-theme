@@ -53,16 +53,13 @@
 					<div class="entry-tag-items">
                     <?php $post_tags = get_the_tags(); ?>
                     <div class="entry-tag-items">
-                    <div class="entry-tag-head">タグ</div>
-                        <?php if ( $post_tags ) : ?>
-                        <?php foreach ( $post_tags as $tag ) : ?>
-                        <div class="entry-tag-item"><a href="<?php echo esc_url( get_tag_link($tag->term_id) ); ?>"><?php echo esc_html( $tag->name ); ?></a></div><!-- /entry-tag-item -->
-                        <?php endforeach; ?>
-                        <?php endif; ?>
+					<div class="entry-tag-head">タグ</div>
+					 <?php my_get_post_tags(); ?>
 					</div><!-- /entry-tag-items -->
 
 
 				<?php get_template_part('template-parts/related-item'); ?>
+
                 </article> <!-- /entry -->
 			</main><!-- /primary -->
 
